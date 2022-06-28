@@ -1,5 +1,7 @@
 import { createContext } from 'react'
 
-createContext({
+const Context = createContext({
     currentUser: null
 })
+
+export default Context
