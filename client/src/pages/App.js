@@ -2,7 +2,7 @@ import React from "react";
 import withRoot from "../withRoot";
 
 const App = () => {
-  return <div>Apps Apps</div>;
+  return <div>Geo Pins Apps Apps</div>;
 };
 
 export default withRoot(App);
