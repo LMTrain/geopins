@@ -24,7 +24,7 @@ const styles = theme => ({
     color: "red"
   },
   sendButton: {
-    padding: 0,
+    padding: 1,
     color: theme.palette.secondary.dark
   }
 });
