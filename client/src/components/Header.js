@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withStyles } from "@material-ui/core/styles";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import Map from "@material-ui/icons/Map";
-// import Typography from "@material-ui/core/Typography";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import MapIcon from "@material-ui/icons/Map";
+import Typography from "@material-ui/core/Typography";
+
+import Context from '../context'
 
 const Header = ({ classes }) => {
+  const { state } = useContext(Context)
+  const { currentUser } = state
   return <div>Header</div>;
 };
 
