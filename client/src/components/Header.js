@@ -41,14 +41,16 @@ const Header = ({ classes }) => {
                 color="inherit"
                 noWrap
               >
-                
+                {currentUser.name}
               </Typography>
             </div>
           )}
+
+          {/* Signout Button  */}
         </Toolbar>
       </AppBar>
     </div>
-  )
+  );
 };
 
 const styles = theme => ({

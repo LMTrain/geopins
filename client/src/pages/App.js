@@ -1,8 +1,11 @@
 import React from "react";
+
+import Header from "../components/Header";
 import withRoot from "../withRoot";
 
 const App = () => {
-  return <div>LM Systems Geo Pins Apps</div>;
+  return <Header />
+    
 };
 
 export default withRoot(App);
