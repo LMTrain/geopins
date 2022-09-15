@@ -5,10 +5,13 @@ import Map from '../components/Map'
 import withRoot from "../withRoot";
 
 const App = () => {
-  <>
-    <Header />
-    <Map />
-  </>
+  return(
+    <>
+      <Header />
+      <Map />
+    </>
+
+  )
     
 };
 

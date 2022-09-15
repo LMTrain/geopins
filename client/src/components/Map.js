@@ -5,8 +5,26 @@ import { withStyles } from "@material-ui/core/styles";
 // import Typography from "@material-ui/core/Typography";
 // import DeleteIcon from "@material-ui/icons/DeleteTwoTone";
 
+const viewport = {
+  latitude: 37.7577,
+  longitude: -122.4376,
+  zoom: 13
+}
+
 const Map = ({ classes }) => {
-  return <div>Map</div>;
+  return (
+  <div className={classes.root}>
+    <ReactMapGl
+      width="100vw"
+      height='calc(100vh - 64px)'
+      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapboxApiAccessToken="pk.eyJ1IjoibG1tYXAiLCJhIjoiY2w4M2txZnJ5MDBlZjNwbnZ0dno0N3E5ZiJ9.m7tbBU-PdYRDbyI_Mg-AMQ"
+      {...viewport}
+    >
+
+    </ReactMapGl>
+
+  </div>);
 };
 
 const styles = {
