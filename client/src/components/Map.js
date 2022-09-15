@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactMapGl from 'react-map-gl'
+import ReactMapGl, {NavigationControl} from 'react-map-gl'
 import { withStyles } from "@material-ui/core/styles";
 // import Button from "@material-ui/core/Button";
 // import Typography from "@material-ui/core/Typography";
@@ -24,7 +24,13 @@ const Map = ({ classes }) => {
       (newViewport)}
       {...viewport}
     >
+      {/* Navigation Control */}
+      <div className={classes.navigationControl}>
+        <NavigationControl 
+        onViewportChange={newViewport => setViewport(newViewport)}
+        />
 
+      </div>
     </ReactMapGl>
 
   </div>);
