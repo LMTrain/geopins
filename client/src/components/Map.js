@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMapGl, {NavigationControl} from 'react-map-gl'
 import { withStyles } from "@material-ui/core/styles";
 // import Button from "@material-ui/core/Button";
@@ -12,7 +12,16 @@ const INITIAL_VIEWPORT = {
 }
 
 const Map = ({ classes }) => {
-  const [viewport, setViewport] = useState(INITIAL_VIEWPORT)
+  const [viewport, setViewport] = useState(INITIAL_VIEWPORT);
+  const [userPosition, setUserPosition] = useState(null)
+  useEffect(() => {
+    getUserPosition()
+  }, [])
+
+  const getUserPosition = () => {
+    
+  }
+
   return (
   <div className={classes.root}>
     <ReactMapGl
