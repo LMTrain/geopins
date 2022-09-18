@@ -19,8 +19,8 @@ const Header = ({ classes }) => {
           <div className={classes.grow}>
             <MapIcon className={classes.icon} />
             <Typography
-              component="h2"
-              variant="h5"
+              component="h1"
+              variant="h6"
               color="inherit"
               noWrap
                           
