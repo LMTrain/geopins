@@ -26,9 +26,15 @@ const Map = ({ classes }) => {
         const { latitude, longitude } = position.coords
         setViewport({...viewport, latitude, longitude})
         setUserPosition({ latitude, longitude });
-      })
+      });
     }
-  }
+  };
+
+  const handleMapClick = ({ langlat, leftButton }) => {
+    console.log(event);
+    if (!leftButton) return
+
+  };
 
   return (
   <div className={classes.root}>
@@ -39,6 +45,7 @@ const Map = ({ classes }) => {
       mapboxApiAccessToken="pk.eyJ1IjoibG1tYXAiLCJhIjoiY2w4M2txZnJ5MDBlZjNwbnZ0dno0N3E5ZiJ9.m7tbBU-PdYRDbyI_Mg-AMQ"
       onViewportChange={newViewport => setViewport
       (newViewport)}
+      onClick={handleMapClick}
       {...viewport}
     >
       {/* Navigation Control */}
