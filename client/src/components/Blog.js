@@ -3,11 +3,20 @@ import { withStyles } from "@material-ui/core/styles";
 // import { Paper } from "@material-ui/core";
 
 import Context from "../context";
+import NoContent from "./Pin/NoContent";
+import CreatePin from "./Pin/CreatePin";
 
 const Blog = ({ classes }) => {
   const { state } = useContext(Context)
   const { draft } = state
-  
+
+
+  let BlogContent;
+  if (!draft) {
+    BlogContent = NoContent
+  } else if (draft) {
+    BlogContent = CreatePin
+  }
   return <div>Blog</div>;
 };
 
