@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withStyles } from "@material-ui/core/styles";
 // import { Paper } from "@material-ui/core";
 
+import Context from "../context";
+
 const Blog = ({ classes }) => {
+  const { state } = useContext(Context)
+  const { draft } = state
+  
   return <div>Blog</div>;
 };
 
