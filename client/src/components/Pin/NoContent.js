@@ -5,7 +5,19 @@ import Typography from "@material-ui/core/Typography";
 
 const NoContent = ({ classes }) => (
   <div className={classes.root}>
-    <ExploreIcon />
+    <ExploreIcon className={classes.icon}/>
+    <Typography
+      noWrap
+      component="h2"
+      variant="h6"
+      align="center"
+      color="textPrimary"
+      gutterBottom
+    
+    
+    >
+      Click on the map to add a pin
+    </Typography>
   </div>
 )
 
