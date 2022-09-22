@@ -9,13 +9,14 @@ import CreatePin from "./Pin/CreatePin";
 const Blog = ({ classes }) => {
   const { state } = useContext(Context)
   const { draft } = state
+  
 
 
   let BlogContent;
   if (!draft) {
     BlogContent = NoContent
   } else if (draft) {
-    BlogContent = CreatePin
+    BlogContent = CreatePin;
   }
 
   return (
