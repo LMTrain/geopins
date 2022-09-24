@@ -9,6 +9,10 @@ import ClearIcon from "@material-ui/icons/Clear";
 import SaveIcon from "@material-ui/icons/SaveTwoTone";
 
 const CreatePin = ({ classes }) => {
+const [title, setTitle] = useState("")
+const [image, setImage] = useState("")
+const [content, setContent] = useState("")
+
   return (
     <form className={classes.form}>
       <Typography
@@ -21,9 +25,8 @@ const CreatePin = ({ classes }) => {
       </Typography>
       <div>
         <TextField 
-          name='title'
-          label='Title'
-          placeholder='Insert pin title'
+          name='title' label='Title' placeholder='Insert pin title'
+            onChange={e => setTitle(e.target.value)}
         />
         <input 
           accept="image/*"
