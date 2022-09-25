@@ -21,7 +21,7 @@ const [content, setContent] = useState("")
         variant="h4"
         color="secondary"
       >
-        <LandscapeIcon className={classes.iconLarge} /> Pin Location
+        <LandscapeIcon className={classes.iconLarge} /> Pin Location Mark
       </Typography>
       <div>
         <TextField 
