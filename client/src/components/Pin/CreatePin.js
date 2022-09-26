@@ -33,6 +33,7 @@ const [content, setContent] = useState("")
           id="image"
           type="file"
           className={classes.input}
+          onChange={e => setImage(e.target.files)}
         />
         <label htmlFor="image">
           <Button
