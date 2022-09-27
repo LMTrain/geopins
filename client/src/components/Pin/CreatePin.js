@@ -29,6 +29,9 @@ const CreatePin = ({ classes }) => {
     data.append("file", image)
     data.append("upload_preset", "geopins")
     data.append("cloud_name", "drtnf4gmb")
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/drtnf4gmb/image/upload", data
+    )
   }
 
   const handleSubmit = event => {
