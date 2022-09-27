@@ -32,11 +32,13 @@ const CreatePin = ({ classes }) => {
     const res = await axios.post(
       "https://api.cloudinary.com/v1_1/drtnf4gmb/image/upload", data
     )
+    return res.data.url
   }
 
   const handleSubmit = event => {
-    event.preventDefault()
-    console.log({ title, image, content });
+    event.preventDefault();
+    const url = handleImageUpload();
+    console.log({ title, image, url, content });
   };
 
   return (
