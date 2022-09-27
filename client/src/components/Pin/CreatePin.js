@@ -9,9 +9,14 @@ import ClearIcon from "@material-ui/icons/Clear";
 import SaveIcon from "@material-ui/icons/SaveTwoTone";
 
 const CreatePin = ({ classes }) => {
-const [title, setTitle] = useState("")
-const [image, setImage] = useState("")
-const [content, setContent] = useState("")
+  const [title, setTitle] = useState("")
+  const [image, setImage] = useState("")
+  const [content, setContent] = useState("")
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log({ title, image, content });
+  };
 
   return (
     <form className={classes.form}>
@@ -33,7 +38,7 @@ const [content, setContent] = useState("")
           id="image"
           type="file"
           className={classes.input}
-          onChange={e => setImage(e.target.files)}
+          onChange={e => setImage(e.target.files[0])}
         />
         <label htmlFor="image">
           <Button
@@ -54,12 +59,12 @@ const [content, setContent] = useState("")
           margin="normal"
           fullWidth
           variant="outlined"
+          onChange={e => setContent(e.target.value)}
         />
       </div>
       <div>
         <Button
-          className={classes.button}
-          variant="contained"
+          className={classes.button} variant="contained"
           color="primary"
         >
           <ClearIcon className={classes.leftIcon} />
@@ -70,6 +75,8 @@ const [content, setContent] = useState("")
           className={classes.button}
           variant="contained"
           color="secondary"
+          disabled={!title.trim() || !content.trim() || !image}
+          onClick={handleSubmit}
         >
           Submit
           <SaveIcon className={classes.RightIcon} />
