@@ -1,12 +1,7 @@
 const { AuthenticationError } = require('apollo-server')
+const Pin = require('./models/Pin')
 
 
-const user = {
-    _id: "1",
-    name: "Laycon",
-    email: "layconmm@msn.com",
-    picture: "https://lmtrain.github.io/lm-images/assets/images/bugatti_1.jpg"
-}
 
 const authenticated = next => (root, args, ctx, inf) => {
     if (!ctx.currentUser) {
@@ -17,6 +12,14 @@ const authenticated = next => (root, args, ctx, inf) => {
 
 module.exports = {
     Query: {
-        me:authenticated((root, args, ctx, inf) => ctx.currentUser)
+        me:authenticated((root, args, ctx, inf) => 
+        ctx.currentUser)
+    },
+    Mutation: {
+        createPin: (root, args, ctx) => {
+            await new Pin(args.input)
+    
+        }
     }
-}
+};
+
