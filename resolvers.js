@@ -16,10 +16,13 @@ module.exports = {
         ctx.currentUser)
     },
     Mutation: {
-        createPin: (root, args, ctx) => {
-            await new Pin(args.input)
+        createPin: authenticated(async (root, args, ctx) => {
+            const newPin = await new Pin({
+                ...args.input,
+                author: ctx.currentUser._id
+            }).save()
     
-        }
+        })
     }
 };
 
