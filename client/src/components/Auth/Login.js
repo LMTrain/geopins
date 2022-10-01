@@ -43,7 +43,7 @@ const Login = ({ classes }) => {
         noWrap
         style={{ color: "rgb(66, 133, 244)" }}
       >
-        Welcome To LM Geolocation Pin
+        Welcome To Geolocation Pin
       </Typography>
       <GoogleLogin 
         clientId="60379064216-odedg154ipn4rpsns5usfbl8obnpop5g.apps.googleusercontent.com"
