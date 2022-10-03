@@ -21,6 +21,8 @@ module.exports = {
                 ...args.input,
                 author: ctx.currentUser._id
             }).save()
+            await Pin.populate(newPin, 'author')
+            return PinAdded
     
         })
     }
