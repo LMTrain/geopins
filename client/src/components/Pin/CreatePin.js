@@ -10,6 +10,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import SaveIcon from "@material-ui/icons/SaveTwoTone";
 
 import Context from "../../context"
+import { CREATE_PIN_MUTATION } from '.../../graphql/mutations'
 
 const CreatePin = ({ classes }) => {
   const { dispatch } = useContext(Context)

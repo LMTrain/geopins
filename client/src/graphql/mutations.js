@@ -6,6 +6,20 @@ export const CREAT_PIN_MUTATION =`
          $content: String!, 
          $latitude: Float!, 
          $longitude: Float!
-        }) 
+        }) {
+            _id
+            createdAt
+            title
+            image
+            content
+            latitude
+            longitude
+            author {
+                _id
+                name
+                email
+                picture
+            }
+        }
     }
 `
