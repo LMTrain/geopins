@@ -16,7 +16,7 @@ const NoContent = ({ classes }) => (
     
     
     >
-      Click on anywhere on the map to add a pin
+      Click on the map to add a pin
     </Typography>
   </div>
 )
