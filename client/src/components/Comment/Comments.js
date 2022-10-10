@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 // import Avatar from "@material-ui/core/Avatar";
 // import Typography from "@material-ui/core/Typography";
 
-const Comments = ({ classes }) => <div>Add Any Comments</div>;
+const Comments = ({ classes }) => <div>Add Comments</div>;
 
 const styles = theme => ({
   root: {
