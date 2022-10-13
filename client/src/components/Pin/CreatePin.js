@@ -14,10 +14,11 @@ import Context from "../../context"
 import { CREATE_PIN_MUTATION } from '.../../graphql/mutations'
 
 const CreatePin = ({ classes }) => {
-  const { dispatch } = useContext(Context)
+  const { state, dispatch } = useContext(Context)
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [content, setContent] = useState("");
+  const [submitting, setSubmitting] = useState(false)
 
   const handleDeleteDraft = () => {
     setTitle("")
@@ -37,11 +38,27 @@ const CreatePin = ({ classes }) => {
     return res.data.url
   }
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    new GraphQLClient('http://localhost:4000/graphql')
-    const url = handleImageUpload();
-    console.log({ title, image, url, content });
+  const handleSubmit = async event => {
+    try {
+
+      event.preventDefault();
+      setSubmitting(true)
+      const idToken = window.gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().id_token;
+      const client = new GraphQLClient('http://localhost:4000/graphql', {
+        headers: { authorization: idToken }
+      })
+      const url = await handleImageUpload();
+      const { latitude, longitude } = state.draft
+      const variables = { title, image: url, content, latitude, longitude }
+      const { CreatePin } = await client.request(CREATE_PIN_MUTATION, variables)
+      console.log("Pin Created", { createPin })
+      console.log({ title, image, url, content, latitude, longitude });
+      handleDeleteDraft()
+    } catch (err) {
+      setSubmitting(false)
+      console.error("Error creating pin", err)
+
+    }
   };
 
   return (
@@ -59,6 +76,7 @@ const CreatePin = ({ classes }) => {
           name='title' label='Title' placeholder='Insert pin title'
             onChange={e => setTitle(e.target.value)}
         />
+      
         <input 
           accept="image/*"
           id="image"
@@ -101,7 +119,7 @@ const CreatePin = ({ classes }) => {
           className={classes.button}
           variant="contained"
           color="secondary"
-          disabled={!title.trim() || !content.trim() || !image}
+          disabled={!title.trim() || !content.trim() || !image || submitting}
           onClick={handleSubmit}
         >
           Submit
