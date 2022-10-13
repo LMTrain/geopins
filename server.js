@@ -27,10 +27,10 @@ context: async ({ req }) => {
                 currentUser = await findOrCreateUser(authToken)
             }
         } catch (err) {
-            console.error(`Unable to authenticate user with token ${authToken}`)
+            console.error(`Unable to authenticate user with token ${authToken}`);
         }
 
-        return { currentUser }
+        return { currentUser };
     }
 
 });

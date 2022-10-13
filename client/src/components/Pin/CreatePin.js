@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { GraphQLClient } from 'graphql-request'
 import axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -38,6 +39,7 @@ const CreatePin = ({ classes }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    new GraphQLClient('http://localhost:4000/graphql')
     const url = handleImageUpload();
     console.log({ title, image, url, content });
   };
