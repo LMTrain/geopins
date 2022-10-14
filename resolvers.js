@@ -12,7 +12,7 @@ const authenticated = next => (root, args, ctx, inf) => {
 
 module.exports = {
     Query: {
-        me:authenticated((root, args, ctx, inf) => 
+        me: authenticated((root, args, ctx, inf) => 
         ctx.currentUser)
     },
     Mutation: {
@@ -22,7 +22,7 @@ module.exports = {
                 author: ctx.currentUser._id
             }).save()
             const pinAdded = await Pin.populate(newPin, 'author')
-            return PinAdded
+            return pinAdded
     
         })
     }

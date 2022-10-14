@@ -27,7 +27,7 @@ const Map = ({ classes }) => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords
-        setViewport({...viewport, latitude, longitude})
+        setViewport({...viewport, latitude, longitude});
         setUserPosition({ latitude, longitude });
       });
     }
